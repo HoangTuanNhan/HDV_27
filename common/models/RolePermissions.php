@@ -62,4 +62,5 @@ class RolePermissions extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Permissions::className(), ['id' => 'permission_id']);
     }
+   
 }

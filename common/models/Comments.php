@@ -34,7 +34,7 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'foody_id', 'content', 'create_at', 'update_at', 'delete_at'], 'required'],
+            [['user_id', 'foody_id', 'content'], 'required'],
             [['user_id', 'foody_id', 'create_at', 'update_at', 'delete_at'], 'integer'],
             [['content'], 'string'],
             [['foody_id'], 'exist', 'skipOnError' => true, 'targetClass' => Foods::className(), 'targetAttribute' => ['foody_id' => 'id']],

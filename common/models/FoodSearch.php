@@ -18,7 +18,7 @@ class FoodSearch extends Foods
     public function rules()
     {
         return [
-            [['id', 'price', 'comment_id', 'food_category_id', 'create_at', 'update_at', 'delete_at'], 'integer'],
+            [['id', 'price', 'food_category_id', 'create_at', 'update_at', 'delete_at'], 'integer'],
             [['name', 'detail', 'image'], 'safe'],
         ];
     }
@@ -61,7 +61,7 @@ class FoodSearch extends Foods
         $query->andFilterWhere([
             'id' => $this->id,
             'price' => $this->price,
-            'comment_id' => $this->comment_id,
+   
             'food_category_id' => $this->food_category_id,
             'create_at' => $this->create_at,
             'update_at' => $this->update_at,

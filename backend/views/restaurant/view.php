@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use common\components\Util;
 /* @var $this yii\web\View */
 /* @var $model common\models\Restaurants */
 
@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'detail:ntext',
-            'image',
+             [
+                'attribute'=>'image',
+                'value'=>  Util::getUrlImage($model->image),
+                'format' => ['image',['width'=>'200','height'=>'200']],
+            ],
             'restaurant_category_id',
             'address_id',
             'time_open',

@@ -12,7 +12,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $price
  * @property string $detail
  * @property string $image
- * @property integer $comment_id
+
  * @property integer $food_category_id
  * @property integer $create_at
  * @property integer $update_at
@@ -38,8 +38,8 @@ class Foods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price', 'detail', 'image', 'comment_id', 'food_category_id', 'create_at', 'update_at', 'delete_at'], 'required'],
-            [['price', 'comment_id', 'food_category_id', 'create_at', 'update_at', 'delete_at'], 'integer'],
+            [['name', 'price', 'detail', 'image', 'food_category_id'], 'required'],
+            [['price', 'food_category_id', 'create_at', 'update_at', 'delete_at'], 'integer'],
             [['detail'], 'string'],
             [['name', 'image'], 'string', 'max' => 200],
         ];
@@ -55,8 +55,7 @@ class Foods extends \yii\db\ActiveRecord
             'name' => 'Name',
             'price' => 'Price',
             'detail' => 'Detail',
-            'image' => 'Image',
-            'comment_id' => 'Comment ID',
+            'image' => 'Image', 
             'food_category_id' => 'Food Category ID',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
@@ -70,11 +69,6 @@ class Foods extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getComments()
-    {
-        return $this->hasMany(Comments::className(), ['foody_id' => 'id']);
-    }
-
     /**
      * @return \yii\db\ActiveQuery
      */

@@ -1,7 +1,7 @@
 <?php
 
 namespace common\models;
-
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -50,5 +50,8 @@ class Permissions extends \yii\db\ActiveRecord
     public function getRolePermissions()
     {
         return $this->hasMany(RolePermissions::className(), ['permission_id' => 'id']);
+    }
+      public static function listRoleper() {
+        return ArrayHelper::map(self::find()->all(), 'id', 'name');
     }
 }

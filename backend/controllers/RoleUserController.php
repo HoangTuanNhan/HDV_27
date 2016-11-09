@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Permissions;
-use common\models\PermissionSearch;
+use common\models\UserRoles;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PermissionsController implements the CRUD actions for Permissions model.
+ * RoleController implements the CRUD actions for Roles model.
  */
-class PermissionsController extends Controller
+class RoleUserController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,22 +30,13 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Lists all Permissions models.
+     * Lists all Roles models.
      * @return mixed
      */
-    public function actionIndex()
-    {
-        $searchModel = new PermissionSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
 
     /**
-     * Displays a single Permissions model.
+     * Displays a single Roles model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +48,16 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Creates a new Permissions model.
+     * Creates a new Roles model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Permissions();
+        $model = new UserRoles();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +66,7 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Updates an existing Permissions model.
+     * Updates an existing Roles model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -93,20 +84,9 @@ class PermissionsController extends Controller
         }
     }
 
-    public function actionSet()
-    {
-        $model = new \common\models\RolePermissions;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-            return $this->render('set', [
-                'model' => $model,
-            ]);
-        }
-    }
     /**
-     * Deletes an existing Permissions model.
-     * If deletion is successful, return $this->redirect(['index']);the browser will be redirected to the 'index' page.
+     * Deletes an existing Roles model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
@@ -118,18 +98,11 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Finds the Permissions model based on its primary key value.
+     * Finds the Roles model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Permissions the loaded model
+     * @return Roles the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = Permissions::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
+  
 }

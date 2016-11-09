@@ -26,7 +26,7 @@ use yii\behaviors\TimestampBehavior;
  * @property PasswordResets $email0
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface {
-
+    use \damirka\JWT\UserTrait;
     const STATUS_DELETED = 0;
     const STATUS_NOT_ACTIVE = 1;
     const STATUS_ACTIVE = 2;

@@ -1,7 +1,7 @@
 <?php
 
 namespace common\models;
-
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -59,5 +59,8 @@ class Roles extends \yii\db\ActiveRecord
     public function getUserRoles()
     {
         return $this->hasMany(UserRoles::className(), ['role_id' => 'id']);
+    }
+    public static function listRole() {
+        return ArrayHelper::map(self::find()->all(), 'id', 'name');
     }
 }

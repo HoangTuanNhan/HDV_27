@@ -14,7 +14,11 @@ use common\components\Util;
 
 <div class="foods-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    $form = ActiveForm::begin([
+                'options' => ['enctype' => 'multipart/form-data'] // important
+    ]);
+    ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -39,7 +43,7 @@ use common\components\Util;
 
 
  <?= $form->field($model, 'food_category_id')->dropDownList(\common\models\Categories::listCategory()) ?>
- <?= $form->field($model, 'comment_id')->dropDownList(\common\models\Categories::listCategory()) ?>
+ 
 
 
 

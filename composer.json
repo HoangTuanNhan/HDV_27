@@ -18,15 +18,18 @@
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
+         "damirka/yii2-jwt": "v0.2.1",
         "kartik-v/yii2-widget-fileinput": "@dev",
         "kartik-v/yii2-widget-datepicker": "@dev",
         "dmstr/yii2-adminlte-asset": "2.*",
-        "kartik-v/yii2-password": "@dev"
+        "kartik-v/yii2-password": "@dev",
+        "kartik-v/yii2-widget-timepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0",
         "yiisoft/yii2-faker": "~2.0.0",
+        "light/yii2-swagger": "~1.0.0",
 
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1"
